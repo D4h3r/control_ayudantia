@@ -5,10 +5,14 @@ public class Mochila extends Inventario {
         super(capacidad);
     }
 
-    // Método para usar un objeto de la mochila
-    public void usarObjeto(int index) {
-        Objeto objeto = (Objeto) listaObjetos.get(index);
-        System.out.println("Usando objeto: " + objeto.nombreObjeto + " de tipo " + objeto.tipoObjeto);
-        eliminarObjeto(index);
+    // Método para usar un objeto de la mochila por su ID
+    public void usarObjeto(int idObjeto) {
+        Interactuables objeto = buscar(idObjeto);
+        if (objeto instanceof Objeto) {
+            System.out.println("Usando objeto: " + objeto.getNombreObjeto());
+            // Lógica para usar el objeto en la mochila
+        } else {
+            System.out.println("El objeto no se puede usar.");
+        }
     }
 }
